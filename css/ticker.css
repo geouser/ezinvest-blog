@@ -149,3 +149,8 @@
   font-size: 12px;
   margin: 0 0 0 8px;
 }
+
+
+.tv-widget-ticker iframe + div {
+  display: none;
+}

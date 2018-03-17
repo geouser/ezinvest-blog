@@ -2871,7 +2871,8 @@ body {
     padding: 1em 0; }
   .footer-dark__bottom {
     padding: 1em 0;
-    border-top: 1px solid #252733; }
+    border-top: 1px solid #252733;
+    color: #acadaf; }
   .footer-dark .footer-widget {
     font-size: 14px; }
     @media (max-width: 575px) {

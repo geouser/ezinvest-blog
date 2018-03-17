@@ -1,4 +1,7 @@
 <?php 
+
+	require_once('wp-updates-theme.php');
+	new WPUpdatesThemeUpdater_2249( 'http://wp-updates.com/api/2/theme', 'ezinvest-blog' );
 	
 	show_admin_bar(false);
 
@@ -73,7 +76,7 @@
 	function custom_links() {
 		$theme = wp_get_theme();
 
-		wp_enqueue_style( 'general-css', get_template_directory_uri() . '/css/general-min.css', array(), $theme->get( 'Version' ), 'all' );
+		wp_enqueue_style( 'general-css', get_template_directory_uri() . '/css/general.css', array(), $theme->get( 'Version' ), 'all' );
 
 		wp_enqueue_script( 'plugins-js', get_template_directory_uri() . '/js/plugins.js', array('jquery'), $theme->get( 'Version' ), true  );
 		wp_enqueue_script( 'main-js', get_template_directory_uri() . '/js/main.js', array('jquery', 'plugins-js'), $theme->get( 'Version' ), true  );

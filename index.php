@@ -74,6 +74,9 @@
                     height: 70px!important;
                     display: block!important;
                 }
+                .tv-widget-ticker > div iframe + div {
+                    display: none;
+                }
             </style>
             <span id="tradingview-copyright" style="display: none;">
                 <a ref="nofollow noopener" target="_blank" href="http://www.tradingview.com" style="color: rgb(173, 174, 176); font-family: &quot;Trebuchet MS&quot;, Tahoma, Arial, sans-serif; font-size: 13px;">Quotes by <span style="color: #3BB3E4">TradingView</span>
