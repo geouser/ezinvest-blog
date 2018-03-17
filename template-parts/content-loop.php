@@ -11,7 +11,7 @@
     </div> <!-- end news-row --> 
                 
     <?php if ( get_next_posts_link() || get_previous_posts_link() ) : ?>
-        <div class="pagination">
+        <div class="pagination wow fadeIn">
             <?php 
                 
                 $big = 999999999; // need an unlikely integer
@@ -21,8 +21,8 @@
                     'format'            => '?paged=%#%',
                     'current'           => max( 1, get_query_var('paged') ),
                     'total'             => $wp_query->max_num_pages,
-                    'prev_text'         => __('Previous'),
-                    'next_text'         => __('Next'),
+                    'prev_text'         => ez__('Previous'),
+                    'next_text'         => ez__('Next'),
                 ) );
             ?>
         </div>

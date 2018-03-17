@@ -157,9 +157,9 @@
                                 'paged' => 2
                             ), $archive_url );
                         ?>
-                        <a href="<?php echo $archive_url_paged; ?>" class="btn btn-default">Older posts</a>
+                        <a href="<?php echo $archive_url_paged; ?>" class="btn btn-default"><?php ez__e('Older posts'); ?></a>
                     <?php endif; ?>
-                    <a href="<?php echo $archive_url; ?>" class="btn btn-default">All posts</a>
+                    <a href="<?php echo $archive_url; ?>" class="btn btn-default"><?php ez__e('All posts'); ?></a>
                 </div>
                 
             </div>
@@ -167,7 +167,5 @@
         </div> <!-- end news-grid -->
 
         <?php wp_reset_postdata(); ?>
-
-
 
 <?php get_footer(); ?>

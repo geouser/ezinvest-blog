@@ -1,10 +1,49 @@
 <?php 
 
+	show_admin_bar(false);
+
 	require_once('wp-updates-theme.php');
 	new WPUpdatesThemeUpdater_2249( 'http://wp-updates.com/api/2/theme', 'ezinvest-blog' );
 	
-	show_admin_bar(false);
+	
 
+	// 1. customize ACF path
+	add_filter('acf/settings/path', 'my_acf_settings_path');
+	 
+	function my_acf_settings_path( $path ) {
+	 
+	    // update path
+	    $path = get_stylesheet_directory() . '/acf/';
+	    
+	    // return
+	    return $path;
+	    
+	}
+	 
+
+	// 2. customize ACF dir
+	add_filter('acf/settings/dir', 'my_acf_settings_dir');
+	 
+	function my_acf_settings_dir( $dir ) {
+	 
+	    // update path
+	    $dir = get_stylesheet_directory_uri() . '/acf/';
+	    
+	    // return
+	    return $dir;
+	    
+	}
+	 
+
+	// 3. Hide ACF field group menu item
+	//add_filter('acf/settings/show_admin', '__return_false');
+
+
+	// 4. Include ACF
+	include_once( get_stylesheet_directory() . '/acf/acf.php' );
+
+
+	
 	/**
 	 *
 	 * Increase wp upload max size limit
@@ -35,15 +74,17 @@
 	 *
 	*/
 	function template_settings() {
+
 		add_theme_support( 'post-thumbnails' ); 
 		add_theme_support( 'menus' );
 		add_theme_support( 'widgets' );
+		add_theme_support( 'title-tag' );
 
 		register_nav_menu( 'header_menu', 'Header Menu' );
 
 		add_image_size( 'blog_thumbnail', 510 ); // name, width, height, crop
 	}
-	add_action( 'init', 'template_settings' ); // after_theme_setup
+	add_action( 'after_setup_theme', 'template_settings' ); // after_theme_setup
 
 	/*function my_image_sizes($sizes) {
 		$addsizes = array(
@@ -84,7 +125,8 @@
 		wp_localize_script('main-js', 'theme', 
 			array(
 				'ajax_url' => admin_url('admin-ajax.php'),
-				'url' => get_template_directory_uri()
+				'url' => get_template_directory_uri(),
+				'search_tip' => ez__('Start typing in the search field above'),
 			)
 		); 
 
@@ -265,6 +307,21 @@
 	    return $content;
 	}
 	add_shortcode( 'shortcode_name', 'function_name' );
+
+
+
+
+
+
+	function ez__ ( $string ) {
+		return $string;
+	}
+
+
+
+	function ez__e ( $string ) {
+		echo $string;
+	}
 
 
 ?>

@@ -128,7 +128,7 @@ jQuery(document).ready(function($) {
             $('.search-results').html('');
             $('.search-results').append('<div class="search-empty">' + 
                                                     '<img src="'+theme.url+'/images/illo--search-empty.svg" alt="">'+
-                                                    '<p>Start typing in the search field above</p>'+
+                                                    '<p>S' + theme.search_tip + '</p>'+
                                                 '</div>');
         }
     });
@@ -140,7 +140,7 @@ jQuery(document).ready(function($) {
         $('.search-results').html('');
         $('.search-results').append('<div class="search-empty">' + 
                                         '<img src="'+theme.url+'/images/illo--search-empty.svg" alt="">'+
-                                        '<p>Start typing in the search field above</p>'+
+                                        '<p>' + theme.search_tip + '</p>'+
                                     '</div>');
     });
 
