@@ -1,4 +1,4 @@
-<? get_header(); ?>
+<?php get_header(); ?>
 
 
 <div class="page-content">
@@ -12,4 +12,4 @@
 </div> <!-- end news-grid -->
 
 
-<? get_footer(); ?>
+<?php get_footer(); ?>
