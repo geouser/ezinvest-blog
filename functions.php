@@ -79,6 +79,7 @@
 		add_theme_support( 'menus' );
 		add_theme_support( 'widgets' );
 		add_theme_support( 'title-tag' );
+		add_theme_support( 'custom-logo' );
 
 		register_nav_menu( 'header_menu', 'Header Menu' );
 
@@ -117,7 +118,7 @@
 	function custom_links() {
 		$theme = wp_get_theme();
 
-		wp_enqueue_style( 'general-css', get_template_directory_uri() . '/css/general.css', array(), $theme->get( 'Version' ), 'all' );
+		wp_enqueue_style( 'general-css', get_template_directory_uri() . '/css/general-min.css', array(), $theme->get( 'Version' ), 'all' );
 
 		wp_enqueue_script( 'plugins-js', get_template_directory_uri() . '/js/plugins.js', array('jquery'), $theme->get( 'Version' ), true  );
 		wp_enqueue_script( 'main-js', get_template_directory_uri() . '/js/main.js', array('jquery', 'plugins-js'), $theme->get( 'Version' ), true  );
@@ -141,6 +142,9 @@
 	*/
 	add_editor_style( get_template_directory_uri() . '/css/admin-styles.css' );
 
+
+
+
 	/**
 	 *
 	 * Adding google maps API key
@@ -159,40 +163,6 @@
 
 	/**
 	 *
-	 * Creates custom post type
-	 *
-	*/
-	/*function create_settings() {
-		register_post_type('settings', array(
-		  'labels' => array(
-			'name'			=> __( 'Главная информация', 'theme-domain' ),
-			'singular_name'   => __( 'Главная информация', 'theme-domain'  ),
-			'add_new'		 => __( 'Добавить информацию', 'theme-domain'  ),
-			'add_new_item'	=> __( 'Добавить информацию', 'theme-domain'  ),
-			'edit'			=> __( 'Редактировать информацию', 'theme-domain'  ),
-			'edit_item'	   => __( 'Редактировать информацию', 'theme-domain'  ),
-			'new_item'		=> __( 'Новая информация', 'theme-domain'  ),
-			'all_items'	   => __( 'Вся информация', 'theme-domain'  ),
-			'view'			=> __( 'Посмотреть информацию', 'theme-domain'  ),
-			'view_item'	   => __( 'Посмотреть информацию', 'theme-domain'  ),
-			'search_items'	=> __( 'Искать информацию', 'theme-domain'  ),
-			'not_found'	   => __( 'Информация не найдена', 'theme-domain'  ),
-		),
-		'public' => true, // show in admin panel?
-		'menu_position' => 0,
-		'supports' => array( 'title', 'thumbnail'),
-		'taxonomies' => array( '' ),
-		'has_archive' => true,
-		'capability_type' => 'post',
-		'menu_icon'   => 'dashicons-location-alt',
-		'rewrite' => array('slug' => 'settings'),
-		));
-	}
-	add_action( 'init', 'create_settings' );*/
-
-
-	/**
-	 *
 	 * Adds Theme ACF options page
 	 *
 	*/
@@ -203,7 +173,8 @@
 			'menu_title' 	=> 'Theme Settings',
 			'menu_slug' 	=> 'theme-general-settings',
 			'capability' 	=> 'edit_posts',
-			'redirect' 	=> false
+			'redirect' 		=> false,
+			'icon_url' 		=> 'dashicons-schedule'
 		));
 	 
 	}
@@ -312,11 +283,14 @@
 
 
 
-
+	/**
+	 *
+	 * Custom wrap functions for theme translate support
+	 *
+	*/
 	function ez__ ( $string ) {
 		return $string;
 	}
-
 
 
 	function ez__e ( $string ) {

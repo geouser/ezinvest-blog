@@ -1672,6 +1672,9 @@ body {
 .animate {
   opacity: 0; }
 
+.wow {
+  visibility: hidden; }
+
 ::-webkit-input-placeholder {
   opacity: 1; }
 
@@ -2258,10 +2261,28 @@ body {
   height: 55px;
   background-color: #EAEBED; }
 
-.news-grid {
+.news-grid,
+.page-content {
   padding: 5em 0 4em; }
-  .news-grid .news-row {
+  .news-grid .news-row,
+  .page-content .news-row {
     margin-bottom: -25px; }
+  .news-grid .empty,
+  .page-content .empty {
+    padding: 80px 0;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #72808e; }
+    .news-grid .empty img,
+    .page-content .empty img {
+      width: 200px;
+      margin: 0 auto 20px; }
+    .news-grid .empty .code,
+    .page-content .empty .code {
+      font-weight: 500;
+      font-size: 5em;
+      padding: 0.2em 0 0; }
 
 .news-item {
   display: block;
@@ -2793,6 +2814,9 @@ body {
 
 .footer-widget {
   font-size: 12px; }
+  @media (min-width: 768px) {
+    .footer-widget {
+      margin-bottom: 4em; } }
   @media (max-width: 767px) {
     .footer-widget {
       margin: 1em 0; } }
@@ -2857,9 +2881,12 @@ body {
 
 .footer-dark {
   background-color: #2A2C39;
-  padding: 0; }
+  padding: 0 0 53px; }
   .footer-dark__top {
     padding: 4em 0; }
+    @media (min-width: 768px) {
+      .footer-dark__top {
+        padding-bottom: 0; } }
     @media (max-width: 1199px) {
       .footer-dark__top {
         padding: 3em 0; } }
@@ -2870,9 +2897,18 @@ body {
     background-color: #252733;
     padding: 1em 0; }
   .footer-dark__bottom {
-    padding: 1em 0;
+    padding: 2em 0;
     border-top: 1px solid #252733;
-    color: #acadaf; }
+    color: #848a8f;
+    opacity: 1;
+    font-size: 12px; }
+    .footer-dark__bottom p:not(:last-child) {
+      margin-bottom: 1em; }
+    .footer-dark__bottom a {
+      color: inherit; }
+      .footer-dark__bottom a:hover {
+        color: #3bb3e0;
+        text-decoration: underline; }
   .footer-dark .footer-widget {
     font-size: 14px; }
     @media (max-width: 575px) {
@@ -2920,6 +2956,21 @@ body {
   .footer-dark .copyright {
     color: #848a8f;
     opacity: 1; }
+
+.sticky-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 12px;
+  color: #fff;
+  padding: 1.5em 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 5; }
+  @media (max-width: 768px) {
+    .sticky-footer {
+      padding: 1em 0;
+      font-size: 10px; } }
 
 .s-popup {
   background: #f9fafa;
